@@ -16,15 +16,11 @@
  */
 ;(function()
 {
-  // CommonJS
+	// CommonJS
 	typeof(require) != 'undefined' ? SyntaxHighlighter = require('shCore').SyntaxHighlighter : null;
 
 	function Brush()
 	{
-
-		var funcs       = 'abs sum lines mod';
-
-  		var operators   = 'or and in eq bt co lt gt cs ne';
 
 		var keywords =	'ABAP-SOURCE ABBREVIATED ABSTRACT ACCEPT ACCEPTING' + 
 						' ACCORDING ACTIVATION ACTUAL ADD ADD-CORRESPONDING' +  
@@ -47,7 +43,7 @@
 						' CHANGING CHAR-TO-HEX CHARACTER CHECK CHECKBOX' + 
 						' CI_ CIRCULAR CLASS CLASS-CODING CLASS-DATA' + 
 						' CLASS-EVENTS CLASS-METHODS CLASS-POOL CLEANUP CLEAR' + 
-						' CLIENT CLOB CLOCK CLOSE CN' + 
+						' CLIENT CLOB CLOCK CLOSE CN CS' + 
 						' CO CODE CODING COL_BACKGROUND COL_GROUP' + 
 						' COL_HEADING COL_KEY COL_NEGATIVE COL_NORMAL COL_POSITIVE' + 
 						' COL_TOTAL COLLECT COLOR COLUMN COLUMNS' + 
@@ -194,13 +190,10 @@
 						' PUBLIC SECTION RAISE EVENT SET HANDLER';
 
 		this.regexList = [
-			//{ regex: /^[*]|["]/gm,                                      css: 'comments' },		// one line comments
-			{ regex: /^[\*].*$|["].*$/gm,                                      css: 'comments' },		// one line comments
-			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },		// strings
-			{ regex: /\b([\d]+(\.[\d]+)?|0x[a-f0-9]+)\b/gi,				css: 'value' },			// numbers
-			{ regex: new RegExp(this.getKeywords(funcs), 'gmi'),        css: 'color2' },
-      		{ regex: new RegExp(this.getKeywords(operators), 'gmi'),    css: 'color1' },
-			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),		css: 'keyword' }		// abap keyword
+			{ regex: /^[\*].*$|["].*$/gm,                               css: 'comments' },		// one line comments
+			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,	    css: 'string' },		// strings
+			{ regex: /\b([\d]+(\.[\d]+)?|0x[a-f0-9]+)\b/gi,		    css: 'value' },		// numbers
+			{ regex: new RegExp(this.getKeywords(keywords), 'gm'),	    css: 'keyword' }		// abap keyword
 		];
 
 		this.forHtmlScript({
